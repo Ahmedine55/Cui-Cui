@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Cui-Cui</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
+          th:href="@{/css/bootstrap.min.css}" />
+
+    <link rel="stylesheet" type="text/css"
+          href="../static/css/Style.css"
+          th:href="@{/css/Style.css}" />
+</head>
+<body>
+<div class="div-main">
+    <div class="div-conteneur">
+        <div class="div-header">
+            <div><h3>Bienvenue sur Cui-cuiffff</h3></div>
+            <div class="navbar">
+                <ul class="nav navbar-nav">
+                    <li><label>Bienvenue </label><label>Bienvenue </label>
+                        <!--<label th:text="${user.getNom()}"></label></li>-->
+                    <li><a th:href="@{/cui-cui}">Home</a></li>
+                    <li><a th:href="@{/cui-cui}">Seting</a></li>
+                    <li><a th:href="@{/cui-cui}">Deconexion</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel-group div-panel">
+                <div class="col-md-4 col-xs-4 div-left">Lorem superscript dolor subscript amet,
+                    consectetuer adipiscing elit, test link. Nullam dignissim convallis est.
+                    Quisque aliquam. cite. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi,
+                    imperdiet at, tincidunt nec, gravida vehicula, nisl.
+                    Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo,
+                    eu volutpat enim diam eget metus. Maecenas ornare tortor.</div>
+                <div class="col-md-8 col-xs-8 div-right">
+                    ddddddddddd</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
