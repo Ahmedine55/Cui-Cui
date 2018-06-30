@@ -2,6 +2,7 @@ package ifi.jee.CuiCui.metier;
 
 import ifi.jee.CuiCui.model.Message;
 import ifi.jee.CuiCui.model.User;
+import ifi.jee.CuiCui.repository.MessageRepository;
 import ifi.jee.CuiCui.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,9 +19,12 @@ public class UserMetierImpl implements IUserMetier {
 
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private MessageRepository messageRepository;
+
     @Override
     public void creerUser(String nom,String username, String password) {
-        User user=userRepository.save(new User(nom,username,password));
+        userRepository.save(new User(nom,username,password));
     }
 
     @Override
@@ -40,12 +45,19 @@ public class UserMetierImpl implements IUserMetier {
     }
 
     @Override
-    public Message consulterMessage(int id) {
-        return null;
+    public void ajouterMessage(Date date, String body, User user) {
+        messageRepository.save(new Message(date,body,user));
     }
 
     @Override
-    public Page<Message> listMessages(int page, int size) {
-        return null;
+    public Message consulterMessage(int id) {
+        Message message=messageRepository.findOne(id);
+        if(message==null) throw new RuntimeException("Message non trouvé");
+        return message;
+    }
+
+    @Override
+    public Page<Message> listMessages(int idUser,int page, int size) {
+        return messageRepository.listMessages(idUser,new PageRequest(page,size)) ;
     }
 }

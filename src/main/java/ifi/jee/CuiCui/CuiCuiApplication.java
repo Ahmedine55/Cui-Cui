@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -35,7 +36,7 @@ public class CuiCuiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-/*		Hashtag h1=hashtagRepository.save(new Hashtag("#cool"));
+		Hashtag h1=hashtagRepository.save(new Hashtag("#cool"));
 		Hashtag h2=hashtagRepository.save(new Hashtag("#weekend"));
 		Hashtag h3=hashtagRepository.save(new Hashtag("#sleep"));
 
@@ -47,8 +48,12 @@ public class CuiCuiApplication implements CommandLineRunner {
 		Message m2=messageRepository.save(new Message(new Date(),"La vie est belle",user1));
 		Message m3=messageRepository.save(new Message(new Date(),"Aujourd'hui, je vais reviser sans musique :)",user1));
 		Message m4=messageRepository.save(new Message(new Date(),"je me suis reveiller à 14h #sleep",user1));
-		Message m5=messageRepository.save(new Message(new Date(),"Coucou @ahmed,tu viens jouer au foot #foot #weekend",user2));
+		Message m5=messageRepository.save(new Message(new Date(),"Coucou @ahmed,tu viens jouer au foot #foot #weekend",user1));
 
-		userMetier.creerUser("jack","jack","jack");*/
+		userMetier.creerUser("jack","jack","jack");
+		userMetier.ajouterMessage(new Date(),"Allez la france,la coupe est à nous #foot #coupeDuMonde2018",user1);
+		userMetier.listUsers(1,10);
+		Page<Message> pageMessage=userMetier.listMessages(3,1,10);
+		System.out.println("nbPage="+pageMessage.getSize());
 	}
 }

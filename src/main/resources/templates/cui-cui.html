@@ -9,17 +9,18 @@
 
     <link rel="stylesheet" type="text/css"
           href="../static/css/Style.css"
-          th:href="@{/css/Style.css}" />
+          th:href="@{/css/Style.css}"/>
 </head>
 <body>
 <div class="div-main">
     <div class="div-conteneur">
         <div class="div-header">
-            <div><h3>Bienvenue sur Cui-cuiffff</h3></div>
+            <div><img src="../static/images/cui-cui.png" th:src="@{../images/cui-cui.png}" alt="logo" class="logo"/>
+            </div>
             <div class="navbar">
+                <div class="div-bienvenue"><strong>Bienvenue &nbsp;</strong><strong th:text="${user.getNom()}"></strong>
+                </div>
                 <ul class="nav navbar-nav">
-                    <li><label>Bienvenue </label><label>Bienvenue </label>
-                        <!--<label th:text="${user.getNom()}"></label></li>-->
                     <li><a th:href="@{/cui-cui}">Home</a></li>
                     <li><a th:href="@{/cui-cui}">Seting</a></li>
                     <li><a th:href="@{/cui-cui}">Deconexion</a></li>
@@ -27,14 +28,44 @@
             </div>
         </div>
         <div class="panel-group div-panel">
-                <div class="col-md-4 col-xs-4 div-left">Lorem superscript dolor subscript amet,
-                    consectetuer adipiscing elit, test link. Nullam dignissim convallis est.
-                    Quisque aliquam. cite. Nunc iaculis suscipit dui. Nam sit amet sem. Aliquam libero nisi,
-                    imperdiet at, tincidunt nec, gravida vehicula, nisl.
-                    Praesent mattis, massa quis luctus fermentum, turpis mi volutpat justo,
-                    eu volutpat enim diam eget metus. Maecenas ornare tortor.</div>
-                <div class="col-md-8 col-xs-8 div-right">
-                    ddddddddddd</div>
+            <div class="col-md-4 col-xs-4 div-left">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Amis</div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item" th:each="ami:${user.getAmis()}"><i
+                                    th:text="${ami.getNom()}"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Abonnement</div>
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item" th:each="hashtag:${listHahtag}"><i
+                                    th:text="${hashtag.getNom()}"></i></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">Panel Heading</div>
+                    <div class="panel-body">Panel Content</div>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-xs-8 div-right">
+
+                <div class="panel panel-default myForm">
+                    <div class="panel-body"><form th:action="@{/saveMessage}" method="post">
+                        <textarea class="form-control" id="body" name="body" value=""></textarea>
+                        <input type="submit" class="btn btn-primary" value="Publier"/>
+                    </form></div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">message</div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
