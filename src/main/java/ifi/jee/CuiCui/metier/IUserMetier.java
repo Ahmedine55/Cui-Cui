@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface IUserMetier {
     public void creerUser(String nom,String username,String password);
-    public User consulterUser(int id);
+    public User getUserById(int id);
     public Page<User> listUsers(int page, int size);
     public void modifierUser();
 
-    public void ajouterMessage(Date date, String body, User user);
+    public void ajouterMessage(String body, User user);
     public Message consulterMessage(int id);
-    public Page<Message> listMessages(int idUser, int page, int size);
+
 }

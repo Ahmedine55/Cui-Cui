@@ -28,7 +28,7 @@ public class UserMetierImpl implements IUserMetier {
     }
 
     @Override
-    public User consulterUser(int id) {
+    public User getUserById(int id) {
         User user=userRepository.findOne(id);
         if(user==null) throw new RuntimeException("User introuvable");
         return user;
@@ -45,8 +45,8 @@ public class UserMetierImpl implements IUserMetier {
     }
 
     @Override
-    public void ajouterMessage(Date date, String body, User user) {
-        messageRepository.save(new Message(date,body,user));
+    public void ajouterMessage(String body, User user) {
+        messageRepository.save(new Message(new Date(),body,user));
     }
 
     @Override
@@ -54,10 +54,5 @@ public class UserMetierImpl implements IUserMetier {
         Message message=messageRepository.findOne(id);
         if(message==null) throw new RuntimeException("Message non trouvé");
         return message;
-    }
-
-    @Override
-    public Page<Message> listMessages(int idUser,int page, int size) {
-        return messageRepository.listMessages(idUser,new PageRequest(page,size)) ;
     }
 }

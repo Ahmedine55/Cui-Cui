@@ -5,7 +5,7 @@
     <meta charset="UTF-8"/>
     <title>Cui-Cui</title>
     <link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css"
-          th:href="@{/css/bootstrap.min.css}" />
+          th:href="@{/css/bootstrap.min.css}"/>
 
     <link rel="stylesheet" type="text/css"
           href="../static/css/Style.css"
@@ -47,22 +47,24 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-heading">Panel Heading</div>
-                    <div class="panel-body">Panel Content</div>
-                </div>
             </div>
 
             <div class="col-md-8 col-xs-8 div-right">
 
                 <div class="panel panel-default myForm">
-                    <div class="panel-body"><form th:action="@{/saveMessage}" method="post">
-                        <textarea class="form-control" id="body" name="body" value=""></textarea>
-                        <input type="submit" class="btn btn-primary" value="Publier"/>
-                    </form></div>
+                    <div class="panel-body">
+                        <form th:action="@{/ajouterMessage(idUser=${idUser})} " method="post">
+                            <textarea class="form-control" id="body" name="body" value=""></textarea>
+                            <input type="submit" class="btn btn-primary" value="Publier"/>
+                        </form>
+                    </div>
                 </div>
-                <div class="panel panel-default">
-                    <div class="panel-body">message</div>
+
+                <div class="panel panel-default" th:each="m:${listMessage}">
+                    <div class="panel-body" style="position: relative;">
+                        <p class="p-white-space" th:text="${m.getBody()}"></p>
+                        <SPAN class="date-position" th:text="${m.getDate()}"></SPAN>
+                    </div>
                 </div>
 
             </div>
