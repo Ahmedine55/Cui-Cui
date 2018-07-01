@@ -51,9 +51,7 @@ public class CuiCuiApplication implements CommandLineRunner {
 		Message m5=messageRepository.save(new Message(new Date(),"Coucou @ahmed,tu viens jouer au foot #foot #weekend",user1));
 
 		userMetier.creerUser("jack","jack","jack");
-		userMetier.ajouterMessage(new Date(),"Allez la france,la coupe est à nous #foot #coupeDuMonde2018",user1);
-		userMetier.listUsers(1,10);
-		Page<Message> pageMessage=userMetier.listMessages(3,1,10);
-		System.out.println("nbPage="+pageMessage.getSize());
+		userMetier.ajouterMessage("Allez la france,la coupe est à nous #foot #coupeDuMonde2018",user1);
+
 	}
 }

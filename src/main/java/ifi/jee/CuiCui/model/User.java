@@ -14,7 +14,7 @@ public class User {
     private String password;
     @ManyToMany
     private List<User> amis;
-    @OneToMany
+    @OneToMany(mappedBy = "user")
     private List<Message> messages;
     @ManyToMany
     private List<Hashtag> abonnements;

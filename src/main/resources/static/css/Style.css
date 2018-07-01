@@ -86,4 +86,22 @@ html, body
     border-radius: 10px;
     border: 1px solid #ABABAB;
     padding: 5px;
+    overflow: auto;
+    height: 600px;
+}
+
+.date-position{
+    position: absolute;
+    top: 0;
+    right:0;
+    font-family:Serif;
+    font-weight: normal;
+    font-style: italic;
+    text-decoration: none;
+    color: #757575;
+    margin: 1%;
+}
+
+.p-white-space {
+    white-space: pre-wrap;
 }
