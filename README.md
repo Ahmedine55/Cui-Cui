@@ -8,7 +8,7 @@ Cui-cui est une application qui permet de poster des messages, taguer et discute
 Technologies utilisées
 - SpringBoot
 - base de données MYSQL
--Thymeleaf
+- Thymeleaf
 
  fonctionnalité disponible:
 - consulter le profil d'un utilisateur
