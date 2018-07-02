@@ -35,6 +35,13 @@ public class UserMetierImpl implements IUserMetier {
     }
 
     @Override
+    public User findUserByUsername(String username) {
+        List<User> listUser=userRepository.findUserByUsername(username);
+        if(listUser.get(0)==null) throw new RuntimeException("User introuvable");
+        return listUser.get(0);
+    }
+
+    @Override
     public Page<User> listUsers(int page, int size) {
         return userRepository.listUser(new PageRequest(page,size));
     }

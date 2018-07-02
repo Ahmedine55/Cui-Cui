@@ -10,6 +10,7 @@ import java.util.List;
 public interface IUserMetier {
     public void creerUser(String nom,String username,String password);
     public User getUserById(int id);
+    public User findUserByUsername(String username);
     public Page<User> listUsers(int page, int size);
     public void modifierUser();
 

@@ -36,6 +36,7 @@ public class CuiCuiApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+/*
 		Hashtag h1=hashtagRepository.save(new Hashtag("#cool"));
 		Hashtag h2=hashtagRepository.save(new Hashtag("#weekend"));
 		Hashtag h3=hashtagRepository.save(new Hashtag("#sleep"));
@@ -53,5 +54,6 @@ public class CuiCuiApplication implements CommandLineRunner {
 		userMetier.creerUser("jack","jack","jack");
 		userMetier.ajouterMessage("Allez la france,la coupe est à nous #foot #coupeDuMonde2018",user1);
 
+*/
 	}
 }
