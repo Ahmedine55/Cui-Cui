@@ -17,3 +17,7 @@ Technologies utilisées
 
 L'appllication est disponible via le chemin : http://localhost:8080/home/id
  Exemple : http://localhost:8080/home/3
+ 
+ username:user password:user <br/>
+ username:admin password:admin
+ 
